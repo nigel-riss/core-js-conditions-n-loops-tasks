@@ -121,29 +121,42 @@ function convertToRomanNumerals(/* num */) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(numberStr) {
-  switch (null) {
-    default:
-      console.log('facepalm.jpg');
-  }
-
-  const symbols = {
-    0: 'zero',
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-    '-': 'minus',
-    '.': 'point',
-    ',': 'point',
+  const getWord = (symbol) => {
+    switch (symbol) {
+      case '-':
+        return 'minus';
+      case '.':
+        return 'point';
+      case ',':
+        return 'point';
+      case '1':
+        return 'one';
+      case '2':
+        return 'two';
+      case '3':
+        return 'three';
+      case '4':
+        return 'four';
+      case '5':
+        return 'five';
+      case '6':
+        return 'six';
+      case '7':
+        return 'seven';
+      case '8':
+        return 'eight';
+      case '9':
+        return 'nine';
+      case '0':
+        return 'zero';
+      default:
+        return null;
+    }
   };
+
   let wordsStr = '';
   for (let i = 0; i < numberStr.length; i += 1) {
-    wordsStr += `${i > 0 ? ' ' : ''}${symbols[numberStr[i]]}`;
+    wordsStr += `${i > 0 ? ' ' : ''}${getWord(numberStr[i])}`;
   }
   return wordsStr;
 }
