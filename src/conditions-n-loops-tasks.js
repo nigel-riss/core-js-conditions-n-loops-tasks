@@ -38,9 +38,16 @@ function isPositive(number) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(a, b, c) {
-  const maxAB = a > b ? a : b;
-  return maxAB > c ? maxAB : c;
+function getMaxNumber(...args) {
+  let maxNumber = -Infinity;
+
+  for (let i = 0; i < arguments.length; i += 1) {
+    if (args[i] > maxNumber) {
+      maxNumber = args[i];
+    }
+  }
+
+  return maxNumber;
 }
 
 /**
